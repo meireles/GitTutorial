@@ -52,6 +52,8 @@ Or clone a repo from a remote server (such as github or bitbucket)
 git clone <url_for_remote_repo> <new_repo_name>
 ```
 
+For example: `git clone https://github.com/meireles/GitTutorial.git`
+
 ## 2. Work, add and commit <a id="work_add_commit"></a>
 
 After doing work, like creating or modifying things, you should check the status of your repo. This will tell you if files are not being tracked or have been modified.
