@@ -9,7 +9,7 @@ Our goal is that you lean the basics of git by using it, and that you end the cl
 * Having trouble? Put the **<span style="color:red">red post-it</span> up**
 * Finished your task? Put the **<span style="color:green">green post-it</span> up**
 
-#### Use the [cheat sheet]()! //TODO
+#### Use the [cheat sheet](cheat_sheet.md)!
 
 ## Challenges
 
@@ -18,7 +18,7 @@ You will work with a toy example.
 
 1. [Create a repo](#create_repo) ~ 3 min
 2. [Work, add, commit](#work_add_commit) ~ 7 min
-3. [Exploring versions](#explore) ~ 7 min
+3. [Commit cycle and Exploring versions](#explore) ~ 9 min
 4. [Undoing things](#undo) ~ 7 min
 5. [GitHub](#remote) ~ 10 min
 
@@ -46,7 +46,24 @@ Shell Commands: The `mkdir <dir_name>` creates a new directory. Use the `cd <dir
 best_beer <- function(){print("I love IPAs")}
 ```
 
-2. What is the status of your git repo now?
-4. Commit you changes
-5. Did your commit work? What is the status?
+* What is the status of your git repo?
+* Add your changes to the staging area
+* What's the status now?
+* Commit your changes
+* Did your commit work? How can you get your repo's history?
 
+##3. Commit cycle and Exploring versions <a id="work_add_commit"></a>
+
+### Task 1:
+* Add a comment to the function **best_beer**
+* What is the status of your git repo now?
+* Find the what changed between your current **best_beer.R** and the previous version.
+* Happy with your comment? Staging it!
+
+### Task 2:
+* Now change **best_beer** to reflect poor taste (replace "IPAs" with "Lager")
+* What is the status of your repo?
+* Suppose that you really love "Lagers". Commit our newest change (tricky)!
+* Did it work? Find out which version has been committed.
+
+##4. Undoing things <a id="undo"></a>
