@@ -16,7 +16,18 @@
 4. [Undoing Things](#undo)
 5. [Syncing to a Server](#remote)
 6. [Collaborating](#collaborate)
+7. [Resources](#resources)
 
+
+## Configuring git <a id="config"></a>
+
+Tell git your name, email and that you'd like colored output.
+
+```bash
+git config --global user.name "YOUR_NAME"
+git config --global user.email "YOUR_EMAIL"
+git config --global color.ui true
+```
 
 ## 1. Creating a repo <a id="create_repo"></a>
 
@@ -51,31 +62,36 @@ git status
 
 Now, there are two basic steps involved in versioning your work
 
-**1st.** `add`: Tells git what change you'll want in the next project snapshot. (Indexes a file in the staging area).
+**First.** `add`: Tells git what change you want in the next snapshot. It places the file in the _staging area_.
 
 ```bash
-git add <filename>
+git add <filename>   # stages a specific file
 git add *            # adds all files
 ```
 
-**2nd.** `commit`: This actually saves a new version of your project, i.e. takes a snapshot. Changes that were not added (not in the staging area) __will not__ be saved in your commit.
+**Second.** `commit`: This actually saves a new version of your project, i.e. takes a snapshot. Changes that were not added (not in the staging area) __will not__ be saved in your commit.
 
 ```bash
 git commit -m "My short but descriptive commit message"
 ```
 
+Remember: You do not have to commit every single little change. Your working directory and staging area are your firends!
+
 ##3. Exploring versions<a id="explore"></a>
 
+### Repo History
 To view you repo's history, such as what the commits were, who commited and when, use:
 
 ```bash
-git log                      # See commit history
-git log --author=coleoguy    # Only commits by coleoguy
-git log --oneline            # Compact display of commit history
+git log                       # See commit history
+git log --author=<authorname> # Only commits by authorname
+git log --oneline             # Compact display of commit history
 ```
 
 The crazy strings of characters that you see (like `9b79fbd948d5de3f30cdc...` are the commit's fingerprints (hash). You can always refer to a commit using that, or its first 5 characters `9b79f`. `HEAD` points to the most recent end of a commit chain, so we can refer to older commits using `HEAD~1` (previous), `HEAD~2` (two commits ago), and so on.
 
+
+### What is different in an older file?
 
 To see the difference between versions, run:
 
@@ -85,14 +101,15 @@ git diff --staged       # staged VS. commited
 git diff HEAD~1 <file>  # working dir VS. previous version
 ```
 
+### Back to the past & Back to the future
+
 To make your working directory match how the **whole** repo was like in a previous version. 
 
 ```bash
 git checkout <commit_id>
 ```
 
-You can run the older analysis on your previous versin of the data.
-You will see a scary 'detached HEAD' message. This means that nothing that you do will be saved (you can't commit, etc).
+You can look around, run older analysis on your previous version of the data, etc. You will see a scary 'detached HEAD' message. This means that __nothing that you do will be saved__ (you can't commit, etc).
 
 To _"go back"_ to your most recent version, simply:
 
@@ -102,15 +119,28 @@ git checkout master       # `go back` to most recent commit
 
 ##4. Undoing Things <a id="undo"></a>
 
-###TODO!
-```bash
-git checkout -- <filename>
-git checkout <commit> <filename>   # Get the file <filename> from <commit>
-```
+### Undoing a specific change
+
+If you changed a file (in your working directory) and want to discard those changes in favor of the previous version.
 
 ```bash
-git revert
+git checkout -- <filename>         # Get the previous <filename>
+git checkout <commit> <filename>   # Get <filename> from <commit>
+git checkout HEAD <filename>       # Get your most recent change back
 ```
+
+Note that when you use `git checkout <file>` specifying a file to retrieve, you will change the state of your repo! Thus, remember that `git checkout` can be a __read-only__ or __read-write__ operation depending on how you call it.
+
+### Undo all changes introced in the last commit
+
+To revert all the changes that you did in your last commit <commit>, run 
+
+```bash
+git revert <commit>     # Undoes all changes introcuced in <commit>
+```
+
+Supose that you changed code all over the place, added and commited the changes and realized that your analysis stopped working.
+In this situation, you can revert all the changes from the last commit using
 
 
 ##5. "Syncing" to a Server <a id="remote"></a>
@@ -149,7 +179,6 @@ An easy way to collaborate in git is to can use a centralized workflow.
    4. Going through a **work -> add _ commit** cycle
    5. Sharing your changes: `git push origin remote`
 
-
 Because your team is workig in parallel, people may end up changing the same line on the same file. So when you try to
 
 ```bash
@@ -182,4 +211,19 @@ git add bs.txt
 git commit -m "Merge changes from GitHub"
 git push origin master
 ```
+
+##7. Resources <a id="resources"></a>
+
+### GUIs for Git
+* [Sourcetree](https://www.sourcetreeapp.com)
+* [GitHub Desktop](https://desktop.github.com)
+
+### Visual Diff & Merge
+* [Meld](http://meldmerge.org)
+
+### Tutorials
+* [Atalassian (BitBucket)](https://www.atlassian.com/git/tutorials)
+* [GitHub -- Try Git](https://try.github.io/levels/1/challenges/1)
+* [Branching Demo](http://pcottle.github.io/learnGitBranching/?NODEMO) -- really awesome
+
 
