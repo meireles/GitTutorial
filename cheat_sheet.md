@@ -11,7 +11,7 @@
 ## Table of Contents
 
 1. [Creating a repo](#create_repo)
-2. [Doing Work, adding and commiting](#work_add_commit)
+2. [Doing Work, adding and committing](#work_add_commit)
 3. [Exploring versions](#explore)
 4. [Undoing Things](#undo)
 5. [Syncing to a Server](#remote)
@@ -80,7 +80,7 @@ Remember: You do not have to commit every single little change. Your working dir
 ##3. Exploring versions<a id="explore"></a>
 
 ### Repo History
-To view you repo's history, such as what the commits were, who commited and when, use:
+To view you repo's history, such as what the commits were, who committed and when, use:
 
 ```bash
 git log                       # See commit history
@@ -96,8 +96,8 @@ The crazy strings of characters that you see (like `9b79fbd948d5de3f30cdc...` ar
 To see the difference between versions, run:
 
 ```bash
-git diff                # working dir VS. (staged + commited)
-git diff --staged       # staged VS. commited
+git diff                # working dir VS. (staged + committed)
+git diff --staged       # staged VS. committed
 git diff HEAD~1 <file>  # working dir VS. previous version
 ```
 
@@ -131,15 +131,15 @@ git checkout HEAD <filename>       # Get your most recent change back
 
 Note that when you use `git checkout <file>` specifying a file to retrieve, you will change the state of your repo! Thus, remember that `git checkout` can be a __read-only__ or __read-write__ operation depending on how you call it.
 
-### Undo all changes introced in the last commit
+### Undo all changes introduced in the last commit
 
 To revert all the changes that you did in your last commit <commit>, run 
 
 ```bash
-git revert <commit>     # Undoes all changes introcuced in <commit>
+git revert <commit>     # Undo all changes introduced in <commit>
 ```
 
-Supose that you changed code all over the place, added and commited the changes and realized that your analysis stopped working.
+>Suppose that you changed code all over the place, added and ?committed the changes and realized that your analysis stopped working.
 In this situation, you can revert all the changes from the last commit using
 
 
@@ -173,13 +173,13 @@ git pull origin master
 
 An easy way to collaborate in git is to can use a centralized workflow.
 
-1. Colaborators clone your repo
+1. Collaborators clone your repo
 2. You all begin a cycle of
-   3. Geting other people's updates: `git pull origin master`
-   4. Going through a **work -> add _ commit** cycle
+   3. Getting other people's updates: `git pull origin master`
+   4. Going through a **work -> add -> commit** cycle
    5. Sharing your changes: `git push origin remote`
 
-Because your team is workig in parallel, people may end up changing the same line on the same file. So when you try to
+Because your team is working in parallel, people may end up changing the same line on the same file. So when you try to
 
 ```bash
 git pull origin master

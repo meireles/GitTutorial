@@ -1,4 +1,4 @@
-# Tools for Open Science: Git
+# Installing Git
 
 This week, [Heath Blackmon](http://coleoguy.github.io), [Emma Goldberg](http://eeg.github.io/lab/home.html#welcome) and [Dudu Meireles](http://www.bradpittweb.com) will give you a head start on how to use the version control system [git](https://git-scm.com).
 
