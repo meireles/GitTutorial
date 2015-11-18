@@ -1,5 +1,5 @@
 # Grand Challenges for Great Minds
--
+--
 
 Our goal is that you lean the basics of git by using it, and that you end the class time with your group project versioned! We do not want to mess up your work though, so we'll use training wheels first.
 
@@ -18,11 +18,11 @@ You will work with a toy example.
 
 1. [Create a repo](#create_repo) ~ 3 min
 2. [Work, add, commit](#work_add_commit) ~ 7 min
-3. [Commit cycle and Exploring versions](#explore) ~ 9 min
-4. [Undoing things](#undo) ~ 7 min
+3. [Commit cycle and Exploring versions](#explore) ~ 10 min
+4. [Undoing things](#undo) ~ 10 min
 5. [GitHub](#remote) ~ 10 min
 
-### Team up
+### Teamed up
 1. Demo ~ 5 min
 2. [Collaborating](#collaborate)
 
@@ -55,15 +55,59 @@ best_beer <- function(){print("I love IPAs")}
 ##3. Commit cycle and Exploring versions <a id="work_add_commit"></a>
 
 ### Task 1:
-* Add a comment to the function **best_beer**
+* Add a comment on top of the function **best_beer**
 * What is the status of your git repo now?
 * Find the what changed between your current **best_beer.R** and the previous version.
 * Happy with your comment? Staging it!
 
 ### Task 2:
-* Now change **best_beer** to reflect poor taste (replace "IPAs" with "Lager")
+* Now change **best_beer** to reflect poor taste (replace "IPAs" with "lagers")
 * What is the status of your repo?
-* Suppose that you really love "Lagers". Commit our newest change (tricky)!
+* Suppose that you really love lagers. Commit our newest change (tricky)!
 * Did it work? Find out which version has been committed.
 
 ##4. Undoing things <a id="undo"></a>
+
+### Task 1:
+* Make sure that your repo is clean (everything is committed)
+* Open **best_beer** and replace "love" with "hate"
+* Oops, you didn't really mean that. Tell git that you want to discard (undo) that last change in **best_beer.R**.
+* Guess what the status of you repo is. Now check; did you get it right?
+
+### Task 2:
+You wake up the next day with a big headache, and your R function is broken, since it prints `"I love lagers"`.
+
+* Undo the whole last commit
+* Did it work? What is the status?
+* Did you end up erasing the "broken commit" from history?
+
+##5. GitHub <a id="remote"></a>
+
+### Task:
+
+* Create a remote **beer** repo on github
+* Connect your local repo to your brand new remote github repo
+* Did it work? List the remote repos connected to your local machine
+* Push your local repo to your remote
+* Go to the Github webpage and confirm that your stuff is there
+
+--
+# Collaborate on your projects <a id="collaborate"></a>
+--
+
+* Team up in your groups
+* Choose who will own the remote repository
+
+* **Owner**
+ * Create a git repo in your project's dir (locally)
+ * add and commit your files
+ * Create a remote repo on GitHub
+ * Push your local repo to the remote
+
+* **Collaborators**
+ * Clone the owner's repo from github to your computer
+ * Change something (even trivial, like adding a comment)
+ * Commit your changes
+ * Update from remote (someone might have already added stuff)
+ * Check the status of your repo
+ * Upload your changes to GitHub

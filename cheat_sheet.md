@@ -141,10 +141,6 @@ To revert all the changes that you did in your last commit <commit>, run
 git revert <commit>     # Undo all changes introduced in <commit>
 ```
 
->Suppose that you changed code all over the place, added and ?committed the changes and realized that your analysis stopped working.
-In this situation, you can revert all the changes from the last commit using
-
-
 ##5. "Syncing" to a Server <a id="remote"></a>
 
 If cloned from a server, your repo should already have a connected remote (origin). To list the remotes connected to your repo, run:
@@ -153,17 +149,23 @@ If cloned from a server, your repo should already have a connected remote (origi
 git remote -v
 ```
 
+#### Connect your repo to a remote
 If you started from scratch, first create a remote repo on github. To connect your local repo to the new remote repository, perform:
 
 ```bash
 git remote add origin <url_remote_repo>
 ```
+Make sure that you use the `https` address, since it requires less setup. Remember that `origin` will be the nickname of the remote repo in your local system. It is a very standard nickname and you should stick with it.
+
+#### Send changes to the remote: `push`
 
 To push your local changes to the remote server, simply:
 
 ```bash
 git push origin master
 ```
+
+#### Grab the updates from the remote: `pull`
 
 And to update you repo with the newest changes from origin (server), use:
 
@@ -180,6 +182,9 @@ An easy way to collaborate in git is to can use a centralized workflow.
    3. Getting other people's updates: `git pull origin master`
    4. Going through a **work -> add -> commit** cycle
    5. Sharing your changes: `git push origin remote`
+
+
+#### Conflicts
 
 Because your team is working in parallel, people may end up changing the same line on the same file. So when you try to
 
