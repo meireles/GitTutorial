@@ -10,6 +10,14 @@
 
 ## Table of Contents
 
+### Preliminary
+
+1. [How to type commands](#type_commands)
+2. [The shell (or terminal, or gitBASH)](#the_shell)
+3. [Configuring git]()
+
+### Git
+
 1. [Creating a repo](#create_repo)
 2. [Doing Work, adding and committing](#work_add_commit)
 3. [Exploring versions](#explore)
@@ -19,40 +27,73 @@
 7. [Resources](#resources)
 
 
+## How to type commands <a id="type_commands"></a>
+
+When entering commands, you will always replace the text inside `{}` with your own information. For instance:
+
+```bash
+# If you want to create a directory named beer and you see:
+mkdir {new_dir_name}
+# You would actually type
+mkdir beer
+
+# I wanted to add my name to git configuration and I saw:
+git config --global user.name "{your_name}"
+# I would actually type
+git config --global user.name "dudu meireles"  # Keeping quotes
+```
+
+## The shell (or terminal, or gitBASH) <a id="the_shell"></a>
+
+// TODO
+
 ## Configuring git <a id="config"></a>
 
 Tell git your name, email and that you'd like colored output.
 
 ```bash
-git config --global user.name "YOUR_NAME"
-git config --global user.email "YOUR_EMAIL"
+git config --global user.name "{your_name}"
+git config --global user.email "{your_email}"
 git config --global color.ui true
 ```
 
 ## 1. Creating a repo <a id="create_repo"></a>
 
-### New repo from scratch
-Create a new directory (using `mkdir`), move into it (using `cd`) and execute:
+### 1.1. New repo from scratch
+
+Inside a new directory, simply run:
 
 ```bash
 git init
 ```
 
-### Clone an existing Repo
+to create a repository. You can always create a new directory and then move into it using"
+
+```bash
+mkdir {your_dir_name}     # makes a new dir
+cd {your_dir_name}        # moves into a dir
+```
+
+
+### 1.2. Clone an existing Repo
 
 You can copy (clone) and existing local repo
 
 ```bash
-git clone <path_to_repo> <new_repo_name>
+git clone {name_original_repo} {name_new_repo}
 ```
 
 Or clone a repo from a remote server (such as github or bitbucket)
 
 ```bash
-git clone <url_for_remote_repo> <new_repo_name>
+git clone {url_for_remote_repo} {new_repo_name}
 ```
 
-For example: `git clone https://github.com/meireles/GitTutorial.git`
+For example:
+
+```bash
+git clone https://github.com/meireles/GitTutorial.git
+```
 
 ## 2. Work, add and commit <a id="work_add_commit"></a>
 
@@ -64,54 +105,60 @@ git status
 
 Now, there are two basic steps involved in versioning your work
 
-**First.** `add`: Tells git what change you want in the next snapshot. It places the file in the _staging area_.
+### First: `add`
+
+`add` tells git what change you want in the next snapshot. It places the file in the _staging area_.
 
 ```bash
-git add <filename>   # stages a specific file
-git add *            # adds all files
+git add {file_name}   # stages a specific file (file_name)
+git add .             # stages all files
 ```
 
-**Second.** `commit`: This actually saves a new version of your project, i.e. takes a snapshot. Changes that were not added (not in the staging area) __will not__ be saved in your commit.
+### Second: `commit`
+
+`commit` actually saves a new version of your project, i.e. **it takes a snapshot**. Changes that were not added (not in the staging area) **will not** be saved in your commit.
 
 ```bash
-git commit -m "My short but descriptive commit message"
+git commit -m "{My short but descriptive commit message}"
 ```
 
-Remember: You do not have to commit every single little change. Your working directory and staging area are your firends!
+####Remember:
+You do not have to commit every single little change, because you don't need to take one full snapshot of your project all the time. Your working directory and staging area are your firends!
 
 ##3. Exploring versions<a id="explore"></a>
 
-### Repo History
+### 3.1. Repo History
 To view you repo's history, such as what the commits were, who committed and when, use:
 
 ```bash
-git log                       # See commit history
-git log --author=<authorname> # Only commits by authorname
-git log --oneline             # Compact display of commit history
+git log                        # See commit history
+git log --author={author_name} # Only commits by authorname
+git log --oneline              # Compact display of commit history
 ```
+#### Crazy strings (like `9b79fbd948d5de3f30cdc...`)?
+Relaxx, they are just the commit's fingerprints (hash). You can always refer to a commit using that, or its first 5 characters, for instance: `9b79f`.
 
-The crazy strings of characters that you see (like `9b79fbd948d5de3f30cdc...` are the commit's fingerprints (hash). You can always refer to a commit using that, or its first 5 characters `9b79f`. `HEAD` points to the most recent end of a commit chain, so we can refer to older commits using `HEAD~1` (previous), `HEAD~2` (two commits ago), and so on.
+`HEAD` points to the most recent end of a commit chain, so we can refer to older commits using `HEAD~1` (previous), `HEAD~2` (two commits ago), and so on.
 
-
-### What is different in an older file?
+### 3.2. What is different in an older file?
 
 To see the difference between versions, run:
 
 ```bash
 git diff                # working dir VS. (staged + committed)
 git diff --staged       # staged VS. committed
-git diff HEAD~1 <file>  # working dir VS. previous version
+git diff HEAD~1 {file}  # working dir VS. previous version
 ```
 
-### Back to the past & Back to the future
+### 3.3. Back to the past & Back to the future
 
 To make your working directory match how the **whole** repo was like in a previous version. 
 
 ```bash
-git checkout <commit_id>
+git checkout {commit_id}   # commit_id is that crazy string
 ```
 
-You can look around, run older analysis on your previous version of the data, etc. You will see a scary 'detached HEAD' message. This means that __nothing that you do will be saved__ (you can't commit, etc).
+You can look around, run older analysis on your previous version of the data, etc. You will see a scary "detached HEAD" message. This means that __nothing that you do will be saved__ (you can't commit, etc).
 
 To _"go back"_ to your most recent version, simply:
 
@@ -121,45 +168,77 @@ git checkout master       # `go back` to most recent commit
 
 ##4. Undoing Things <a id="undo"></a>
 
-### Undoing a specific change
+### 4.1. Undoing a specific change
 
 If you changed a file (in your working directory) and want to discard those changes in favor of the previous version.
 
 ```bash
-git checkout -- <filename>         # Get the previous <filename>
-git checkout <commit> <filename>   # Get <filename> from <commit>
-git checkout HEAD <filename>       # Get your most recent change back
+git checkout -- {filename}         # Get the previous {filename}
+git checkout {commit} {filename}   # Get {filename} from a given {commit}
+git checkout HEAD {filename}       # Get your most recent change back
 ```
 
-Note that when you use `git checkout <file>` specifying a file to retrieve, you will change the state of your repo! Thus, remember that `git checkout` can be a __read-only__ or __read-write__ operation depending on how you call it.
+#### Important:
 
-### Undo all changes introduced in the last commit
+When you use `git checkout {file}`, i.e. specifying a file to retrieve, __you will change the state of your repo!__
 
-To revert all the changes that you did in your last commit <commit>, run 
+Thus, remember that `git checkout` can be a __read-only__ (as seen in 3.3) or __read-write__ operation (like here) depending on how you call it.
+
+### 4.2. Undo all changes introduced by a commit
+
+To revert all the changes that you made in a commit `{commit}`, run:
 
 ```bash
-git revert <commit>     # Undo all changes introduced in <commit>
+git revert {commit_id}     # Undo all changes introduced in <commit>
 ```
 
-##5. "Syncing" to a Server <a id="remote"></a>
+So if I want to undo the changes introduced in the last commit, I'll do:
 
-If cloned from a server, your repo should already have a connected remote (origin). To list the remotes connected to your repo, run:
+```bash
+git revert HEAD  # remember that HEAD points to my last commit
+```
+
+#### Important:
+This command is not intuitive. It reverts (**undoes**) the changes introduced in `{commit}`. It **does not** revert **to** that commit. For example, if I do `git revert {commit3}` my history will look like this:
+
+```bash
+(commit1)----(commit2)----(commit3)----(commit4)
+                             ^              ^
+                             |              |
+                         Undid this    Added new commit
+                                       based on commit2
+```
+
+##5. "Syncing" to a Remote (e.g. Github)<a id="remote"></a>
+
+If cloned from a remote repository, your repo should already have a connected remote (origin). To list the remotes connected to your repo, run:
 
 ```bash
 git remote -v
 ```
 
-#### Connect your repo to a remote
-If you started from scratch, first create a remote repo on github. To connect your local repo to the new remote repository, perform:
+If you see a list of urls, then you are all set.
+
+
+### 5.1. Connect your repo to a remote
+If you started a repo from scratch, first create a remote repo on github. You should get the address of your repo, which will look like:
 
 ```bash
-git remote add origin <url_remote_repo>
+https://github.com/meireles/GitTutorial.git
 ```
+But will have your Github username instead of `meireles` and the name of your repo instead of `GitTutorial.git `.
+
+To connect your local repo to the new remote repository, perform:
+
+```bash
+git remote add origin {url_remote_repo}
+```
+
 Make sure that you use the `https` address, since it requires less setup. Remember that `origin` will be the nickname of the remote repo in your local system. It is a very standard nickname and you should stick with it.
 
 #### Send changes to the remote: `push`
 
-To push your local changes to the remote server, simply:
+To `push` (upload) your local changes to the remote server, enter:
 
 ```bash
 git push origin master
@@ -175,18 +254,19 @@ git pull origin master
 
 ##6. Collaborating <a id="collaborate"></a>
 
-An easy way to collaborate in git is to can use a centralized workflow.
+### 6.1. Workflow
 
-1. Collaborators clone your repo
+An easy way to collaborate in git is to use a centralized workflow.
+
+1. Collaborators clone your repo (see 1.2 to see how to clone)
 2. You all begin a cycle of
    3. Getting other people's updates: `git pull origin master`
    4. Going through a **work -> add -> commit** cycle
    5. Sharing your changes: `git push origin remote`
 
+### 6.2. Conflicts
 
-#### Conflicts
-
-Because your team is working in parallel, people may end up changing the same line on the same file. So when you try to
+Because your team is working in parallel, people may end up changing the same line on the same file. So when you try to:
 
 ```bash
 git pull origin master
@@ -209,13 +289,13 @@ Who is taller: Heath
 >>>>>>> 
 ```
 
-Just pick the correct line (`Who is taller: Heath` in this case), and get rid of the `<<<<<<< HEAD`, `=======` and `>>>>>>>`.
+Just edit the file picking the correct line (`Who is taller: Heath` in this case), and get rid of the `<<<<<<< HEAD`, `=======` and `>>>>>>>`.
 
 Now you can:
 
 ```bash
 git add bs.txt
-git commit -m "Merge changes from GitHub"
+git commit -m "{Merge changes from GitHub}"
 git push origin master
 ```
 
@@ -232,5 +312,3 @@ git push origin master
 * [Atalassian (BitBucket)](https://www.atlassian.com/git/tutorials)
 * [GitHub -- Try Git](https://try.github.io/levels/1/challenges/1)
 * [Branching Demo](http://pcottle.github.io/learnGitBranching/?NODEMO) -- really awesome
-
-
