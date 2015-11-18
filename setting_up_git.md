@@ -1,4 +1,4 @@
-#1. Setting up git
+##1. Setting up git
 
 After installing, you'll have to configure git on your computer. This means telling git information about you and your preferences. You only have to do this once, and you can always check what your current configuration is using `git config --list`
 

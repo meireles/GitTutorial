@@ -11,6 +11,8 @@ Our goal is that you lean the basics of git by using it, and that you end the cl
 
 #### Use the [cheat sheet](cheat_sheet.md)!
 
+Remember that you will do the vast majority of your work from the command line (shell). Windows users will work from the __gitBash__ program.
+
 ## Challenges
 
 ### On your own
@@ -58,11 +60,12 @@ best_beer <- function(){print("I love IPAs")}
 * Add a comment on top of the function **best_beer**
 * What is the status of your git repo now?
 * Find the what changed between your current **best_beer.R** and the previous version.
-* Happy with your comment? Staging it!
+* Happy with your comment? Stage it!
+
 
 ### Task 2:
 * Now change **best_beer** to reflect poor taste (replace "IPAs" with "lagers")
-* What is the status of your repo?
+* What is the status of your repo? Pay close attention!
 * Suppose that you really love lagers. Commit our newest change (tricky)!
 * Did it work? Find out which version has been committed.
 
