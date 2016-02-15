@@ -29,7 +29,7 @@
 
 ## How to type commands <a id="type_commands"></a>
 
-When entering commands, you will always replace the text inside `{}` with your own information. For instance:
+When entering commands, you will always replace the text inside `{}` with your own information **and** get rid of the curly braces. For instance:
 
 ```bash
 # If you want to create a directory named beer and you see:
@@ -37,7 +37,7 @@ mkdir {new_dir_name}
 # You would actually type
 mkdir beer
 
-# I wanted to add my name to git configuration and I saw:
+# If wanted to add my name to git configuration and I saw:
 git config --global user.name "{your_name}"
 # I would actually type
 git config --global user.name "dudu meireles"  # Keeping quotes
@@ -67,7 +67,7 @@ Inside a new directory, simply run:
 git init
 ```
 
-to create a repository. You can always create a new directory and then move into it using"
+to create a repository. You can always create a new directory and then move into it using
 
 ```bash
 mkdir {your_dir_name}     # makes a new dir
