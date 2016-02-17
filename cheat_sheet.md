@@ -45,7 +45,16 @@ git config --global user.name "dudu meireles"  # Keeping quotes
 
 ## The shell (or terminal, or gitBASH) <a id="the_shell"></a>
 
-// TODO
+### Basic shell commands
+
+```bash
+ls              # lists what is under your current directory
+cd              # Changes directories
+cd {go_here}    # To go to dir {go_here}
+cd ..           # To go back (one dir up)
+
+mkdir {new_dir} # makes a new directory
+```
 
 ## Configuring git <a id="config"></a>
 
