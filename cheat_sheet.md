@@ -14,7 +14,7 @@
 
 1. [How to type commands](#type_commands)
 2. [The shell (or terminal, or gitBASH)](#the_shell)
-3. [Configuring git]()
+3. [Configuring git](#config)
 
 ### Git
 
