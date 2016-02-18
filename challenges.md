@@ -3,12 +3,6 @@
 
 Our goal is that you lean the basics of git by using it, and that you end the class time with your group project versioned! We do not want to mess up your work though, so we'll use training wheels first.
 
-#### We need your feedback!
-
-* Start a task with your post-it notes down
-* Having trouble? Put the **<span style="color:red">red post-it</span> up**
-* Finished your task? Put the **<span style="color:green">green post-it</span> up**
-
 #### Use the [cheat sheet](cheat_sheet.md)!
 
 Remember that you will do the vast majority of your work from the command line (shell). Windows users will work from the __gitBash__ program.
